@@ -53,7 +53,6 @@ public final class EnchantManager implements Listener {
             }
         }
         profile.setDirty(true);
-        player.sendMessage("blocks broken: " + blocksBroken);
     }
     
     public Enchant getEnchant(String name) {
