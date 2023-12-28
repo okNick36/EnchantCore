@@ -1,5 +1,6 @@
 package club.oknick.enchantcore.enchant.impl;
 
+import club.oknick.enchantcore.common.ItemGroup;
 import club.oknick.enchantcore.enchant.Enchant;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -29,7 +30,7 @@ public final class TestEnchant extends Enchant {
     
     @Override
     public boolean canUse(ItemStack itemStack) {
-        return itemStack.getType() == Material.DIAMOND_PICKAXE;
+        return ItemGroup.PICKAXE.includes(itemStack.getType());
     }
     
     @Override
