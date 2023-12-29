@@ -2,8 +2,10 @@ package club.oknick.enchantcore.enchant;
 
 import club.oknick.enchantcore.EnchantCore;
 import club.oknick.enchantcore.enchant.impl.TestEnchant;
+import club.oknick.enchantcore.enchant.menu.EnchantMenu;
 import club.oknick.enchantcore.profile.EnchantProfile;
 import club.oknick.enchantcore.profile.EnchantProfileManager;
+import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,6 +20,7 @@ import java.util.List;
 /**
  * @author Nick
  */
+@Getter
 public final class EnchantManager implements Listener {
     private final List<Enchant> enchants = new ArrayList<>();
     
@@ -27,6 +30,7 @@ public final class EnchantManager implements Listener {
         enchants.add(new TestEnchant());
         this.profileManager = profileManager;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        plugin.getServer().getPluginManager().registerEvents(new EnchantMenu(this), plugin);
     }
     
     @EventHandler
